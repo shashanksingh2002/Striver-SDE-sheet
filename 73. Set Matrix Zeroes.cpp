@@ -64,4 +64,51 @@ public:
 AUXILLIARY SPACE COMPLEXITY: THETHA(M*N)
 TIME COMPLEXITY: O(ROWS*COLUMN*NUMBER OF ONES)
 *******************************************************************************************************************************************************************
+APPROACH-2 (IMPROVING SPACE)
+
+1.] Store the j index of the place where zero is present.
+2.] In the for loop while storing the index make the column zero.
+3.] Run another for loop on the array where rows index is stored and make the rows zero.
+
+CODE:
+
+void setZeroes(vector<vector<int>>& matrix) {
+        vector<int> rows;
+        for(int i=0;i<matrix.size();i++){
+          for(int j=0;j<matrix[i].size();j++){
+            if(matrix[i][j]==0){
+              int left=j-1,right=j+1;
+              rows.push_back(j);
+              while(left>=0){
+                matrix[i][left--]=0;
+              }
+              j++;
+              while(j<matrix[i].size()){
+                if(matrix[i][j]==0){
+                   rows.push_back(j);
+                }
+                else{
+                  matrix[i][j]=0;
+                }
+                j++;
+              }
+              break;
+            }
+          }
+        }
+      for(int i=0;i<rows.size();i++){
+        int row=0,end = rows[i];
+        while(row<matrix.size()){
+          matrix[row++][end]=0;
+        }
+        
+        
+      }
+   }
+};
+
+TIME COMPLEXITY:O(N*M)
+AUXILIARY SPACE COMPLEXITY:O(M)
+
+***********************************************************************************************************************************************************************
 
