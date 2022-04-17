@@ -62,7 +62,7 @@ public:
 };
   
 AUXILLIARY SPACE COMPLEXITY: THETHA(M*N)
-TIME COMPLEXITY: O(ROWS*COLUMN*NUMBER OF ONES)
+TIME COMPLEXITY: O(ROWS*COLUMN*(ROWS+COLUMN))
 *******************************************************************************************************************************************************************
 APPROACH-2 (IMPROVING SPACE)
 
